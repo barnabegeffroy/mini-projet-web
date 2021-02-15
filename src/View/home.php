@@ -1,25 +1,24 @@
-<h1>Menu </h1>
+<h1>Horoscope</h1>
 
 <?php
 $erreur = !empty($_GET['erreur']) ? $_GET['erreur'] : null;
-if (null != $erreur): ?>
-<p class="error"><?php echo $erreur; ?></p>
+if (null != $erreur) : ?>
+  <p class="error"><?php echo $erreur; ?></p>
 <?php
-endif;?>
+endif; ?>
 
 <form action="gestionClient.php" method="post">
-  <label for="idClient">Numéro de client :</label>
-  <input type="number" id="idClient" name="idClient"/><br>
-
+  <label for="prenom">Prénom :</label>
+  <input type="text" id="prenom" name="prenom" /><br>
+  <label for="nom">Nom :</label>
+  <input type="text" id="nom" name="nom" /><br>
   <fieldset>
-  <legend>Choix:</legend>
-    <label for="v">Visualisation :</label>
-    <input type="radio" id="v" value="v" name="choix" required="required" checked><br>
-    <label for="m">Modification :</label>
-    <input type="radio" id="m" value="m" name="choix" required="required"><br>
-    <label for="c">Création :</label>
-    <input type="radio" id="c" value="c" name="choix" required="required"><br>
-    <label for="a">Achat :</label>
+    <legend>Etes-vous un homme ou une femme?</legend>
+    <label for="h">Homme</label>
+    <input type="radio" id="h" value="h" name="choix" required="required"><br>
+    <label for="f">Femme</label>
+    <input type="radio" id="f" value="f" name="choix" required="required"><br>
+    <label for="a">Autre</label>
     <input type="radio" id="a" value="a" name="choix" required="required"><br>
   </fieldset>
   <button type="submit">Envoyer</button>
