@@ -8,7 +8,7 @@ function loadView($view, $data) {
     <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Gestion clients ENSIIE</title>
+        <title>Votre Horoscope</title>
         <link rel="stylesheet" href="style.css">
 
     </head>
