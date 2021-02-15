@@ -3,8 +3,8 @@ language: php
 sudo: true
 
 before_install: 
-  - which sshpass || (sudo apt-get install sshpass )
+  - which sshpass || ( sudo apt-get update -y && sudo apt-get install sshpass )
+  - sshpass -p $PASSWORD ssh barnabe.geffroy@pedago-ext.ensiie.fr 'rm -r public_html/mini-projet'
 
 script: 
-  - sshpass -p $PASSWORD ssh barnabe.geffroy@pedago-ext.ensiie.fr 'rm -r public_html/mini-projet'
   - sshpass -p $PASSWORD scp -r * barnabe.geffroy@pedago-ext.ensiie.fr:~/public_html/mini-projet
