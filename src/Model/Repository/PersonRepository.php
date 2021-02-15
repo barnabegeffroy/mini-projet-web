@@ -4,10 +4,10 @@ namespace Rediite\Model\Repository;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-use \Rediite\Model\Entity\Client;
+use \Rediite\Model\Entity\Person;
 
 
-class ClientRepository {
+class PersonRepository {
 
     /**
      * @var \PDO
@@ -17,20 +17,20 @@ class ClientRepository {
   /**
    * @var CommentHydrator
    */
-  private $clientHydrator;
+  private $personHydrator;
 
   public function __construct(
     \PDO $dbAdapter,
-    \Rediite\Model\Hydrator\ClientHydrator $clientHydrator
+    \Rediite\Model\Hydrator\PersonHydrator $personHydrator
   ) {
     $this->dbAdapter = $dbAdapter;
-    $this->clientHydrator = $clientHydrator;
+    $this->personHydrator = $personHydrator;
   }
 
-  function createClient(int $id, string $nom, string $prenom, string $email, string $signe_astro) {
+  function createPerson(int $id, string $nom, string $prenom, string $email, string $signe_astro) {
     $sql = 
 <<<SQL
-  INSERT INTO client (num_enregistrement, nom, prenom, email, signe_astro)
+  INSERT INTO Personne (num_enregistrement, nom, prenom, email, signe_astro)
     VALUES (:id, :nom, :prenom, :email, :signe_astro);
 SQL;
 

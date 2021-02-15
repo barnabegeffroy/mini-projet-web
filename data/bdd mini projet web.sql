@@ -30,8 +30,8 @@ CREATE TABLE Signe (
 
 CREATE TABLE Personne (
     num_enregistrement INTEGER CONSTRAINT cleprim_personne PRIMARY KEY,
-    prenom VARCHAR(20) NOT NULL,
     nom VARCHAR(20) NOT NULL,
+    prenom VARCHAR(20) NOT NULL,
     email VARCHAR(40),
     signe_astro VARCHAR(10) CONSTRAINT cle_etr_Personne FOREIGN KEY Signe(signe_astro)
 );
