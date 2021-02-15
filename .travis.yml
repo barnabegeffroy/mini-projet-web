@@ -1,0 +1,8 @@
+before_install: 
+  - which sshpass || ( apt-get update -y && apt-get install sshpass )
+
+script: 
+  - sshpass -p $PASSWORD ssh barnabe.geffroy@pedago-ext.ensiie.fr 'rm -r public_html/mini-projet'
+  - sshpass -p $PASSWORD scp -r * barnabe.geffroy@pedago-ext.ensiie.fr:~/public_html/mini-projet
+
+sudo: false
