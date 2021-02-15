@@ -27,52 +27,19 @@ class ClientRepository {
     $this->clientHydrator = $clientHydrator;
   }
 
-  function findClientById(int $id) {
+  function createClient(int $id, string $nom, string $prenom, string $email, string $signe_astro) {
     $sql = 
 <<<SQL
-  SELECT 
-    num_client, 
-    nom_client, 
-    debit_client
-    FROM client WHERE num_client = :id;
-SQL;
-
-
-    $clients = [];
-    $stmt = $this->dbAdapter->prepare($sql);
-    $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-    $stmt->execute();
-    foreach ($stmt->fetchAll() as $rawClient) {
-        $clients[] = $this->clientHydrator->hydrate($rawClient);
-    }
-    return $clients;
-  }
-
-  function changeClientDebit(int $id, float $debit) {
-    $sql = 
-<<<SQL
-  UPDATE client
-    SET debit_client = :debit
-    WHERE num_client = :id;
+  INSERT INTO client (num_enregistrement, nom, prenom, email, signe_astro)
+    VALUES (:id, :nom, :prenom, :email, :signe_astro);
 SQL;
 
     $stmt = $this->dbAdapter->prepare($sql);
     $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-    $stmt->bindValue(':debit', $debit, \PDO::PARAM_INT);
-    return $stmt->execute();
-  }
-
-  function createClient(int $id, string $lastName, float $debit) {
-    $sql = 
-<<<SQL
-  INSERT INTO client (num_client, nom_client, debit_client)
-    VALUES (:id, :lastName, :debit);
-SQL;
-
-    $stmt = $this->dbAdapter->prepare($sql);
-    $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-    $stmt->bindValue(':lastName', $lastName, \PDO::PARAM_STR);
-    $stmt->bindValue(':debit', $debit, \PDO::PARAM_INT);
+    $stmt->bindValue(':nom', $nom, \PDO::PARAM_STR);
+    $stmt->bindValue(':prenom', $prenom, \PDO::PARAM_STR);
+    $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
+    $stmt->bindValue(':signe_astro', $signe_astro, \PDO::PARAM_STR);
     return $stmt->execute();
   }
 
