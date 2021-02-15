@@ -7,3 +7,10 @@ before_install:
   - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null barnabe.geffroy@pedago-ext.ensiie.fr 'rm -r public_html/mini-projet/*'
 script: 
   - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r * barnabe.geffroy@pedago-ext.ensiie.fr:~/public_html/mini-projet
+
+notifications:
+  email:
+    recipients:
+      - barnabe.geffroy@ecomail.fr
+    on_success: never 
+    on_failure: always
