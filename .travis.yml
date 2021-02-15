@@ -4,7 +4,7 @@ sudo: true
 
 before_install: 
   - which sshpass || ( sudo apt-get update -y && sudo apt-get install sshpass )
-  - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null barnabe.geffroy@pedago-ext.ensiie.fr 'rm -r public_html/mini-projet'
+  - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null barnabe.geffroy@pedago-ext.ensiie.fr 'rm -r public_html/mini-projet 2> /dev/null'
 
 script: 
   - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r * barnabe.geffroy@pedago-ext.ensiie.fr:~/public_html/mini-projet
