@@ -3,12 +3,17 @@ body {
   font-family: 'Arvo', serif;
 }
 
+.h1 {
+
+}
 .logo-container {
   font-size: 28px;
 }
 
 .header {
+  color: white;
   background-color: rgb(0, 0, 0);
+  background-image: url(src/Pictures/signes_header.png); 
   padding: 23px;
   display: flex;
   justify-content: space-between;
