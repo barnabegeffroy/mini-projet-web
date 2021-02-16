@@ -45,7 +45,8 @@ SQL;
 
 /* mettre du javascript ici */
 
-<script>alert("<?php echo htmlspecialchars('Voici un message en JS écrit par PHP', ENT_QUOTES); ?>")</script>
+<body onLoad="javascript:alert('Coucou');">
+
 
 	// Visualise la personne créée
 	$data = $person;
