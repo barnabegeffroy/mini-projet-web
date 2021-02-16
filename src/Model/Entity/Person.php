@@ -39,7 +39,7 @@ class Person
     public function __construct(
         string $prenom,
         string $nom,
-        string $email,
+        string $email
     ) {
         $this->idPerson = $this->count;
         $this->lastNamePerson = $nom;
