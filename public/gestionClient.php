@@ -25,8 +25,13 @@ if (null == $sex) {
 	afficherErreur("Date saisie non valide");
 	return;
 } else {
-	$person = new \Rediite\Model\Entity\Person($prenom, $nom, $email, $jour, $mois);
+	$person = new \Rediite\Model\Entity\Person($prenom, $nom, $email);
 	$personRepository = new \Rediite\Model\Repository\PersonRepository($dbAdapter);
+	$addSign = $personRepository->changeDateToSign($person,$jour,$mois);
+	if (!$addSign) {
+		afficherErreur("Erreur lors de la conversion date en signe astrologique");
+		return;
+	}
 	$success = $personRepository->createPerson($person);
 	if (!$success) {
 		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?)");

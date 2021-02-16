@@ -40,14 +40,11 @@ class Person
         string $prenom,
         string $nom,
         string $email,
-        string $jour,
-        string $mois
     ) {
         $this->idPerson = $this->count;
         $this->lastNamePerson = $nom;
         $this->firstNamePerson = $prenom;
         $this->emailPerson = $email;
-        $this->setZodiacSign($jour, $mois);
         $this->count++;
     }
     /**
@@ -121,30 +118,12 @@ class Person
     }
 
     /**
-     * @param mixed $jour, $mois, $annee
+     * @param mixed $sign
      * @return Person
      */
-    public function setZodiacSign($jour, $mois)
+    public function setZodiacSign($sign)
     {
-        $birthDay = date_parse_from_format('d-m', "$jour-$mois");
-        $day = $birthDay['day'];
-        $mounth = $birthDay['mounth'];
-        $request = $this->dbAdapter->prepare(
-            'SELECT
-                signe_zodiac
-            FROM
-            Signe
-            WHERE
-                mois_debut <= :mounth
-                AND mois_fin >= :mounth
-                AND jour_debut <= :jour
-                AND jour_fin >= :jour'
-        );
-        $request->bindValue(':day', $day, \PDO::PARAM_STR);
-        $request->bindValue(':mounth', $mounth, \PDO::PARAM_STR);
-        $request->execute();
-
-        $this->zodiacSignPerson = $request->fetch();
-        return $this;
+        $this->zodiacSignPerson=$sign;
+        return $this
     }
 }

@@ -15,14 +15,37 @@ class PersonRepository
    */
   private $dbAdapter;
 
-  
+
   public function __construct(
     \PDO $dbAdapter
   ) {
     $this->dbAdapter = $dbAdapter;
   }
 
-  
+  function changeDateToSign(PersonEntity $person, $jour, $mois)
+  {
+    $birthDay = date_parse_from_format('d-m', "$jour-$mois");
+    $day = $birthDay['day'];
+    $mounth = $birthDay['mounth'];
+    $request = $this->dbAdapter->prepare(
+      'SELECT
+              signe_zodiac
+          FROM
+          Signe
+          WHERE
+              mois_debut <= :mounth
+              AND mois_fin >= :mounth
+              AND jour_debut <= :jour
+              AND jour_fin >= :jour'
+    );
+    $request->bindValue(':day', $day, \PDO::PARAM_STR);
+    $request->bindValue(':mounth', $mounth, \PDO::PARAM_STR);
+    $request->execute();
+
+    $person->setZodiacSign($request->fetch());
+    return $this;
+  }
+
   function createPerson(PersonEntity $person)
   {
     $sql =
