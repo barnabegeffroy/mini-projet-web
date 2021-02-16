@@ -29,7 +29,7 @@ if (null == $sex) {
 	afficherErreur("Date saisie non valide");
 	return;
 } else {
-	$person = new \Rediite\Model\Entity\Person($sex, $prenom,	$nom, $email, $date);
+	$person = new \Rediite\Model\Entity\Person($sex, $prenom, $nom, $email, $date);
 	$personRepository = new \Rediite\Model\Repository\PersonRepository();
 	$success = $personRepository->createPerson($person);
 	if (!$success) {
