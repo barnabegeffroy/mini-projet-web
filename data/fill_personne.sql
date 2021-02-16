@@ -1,0 +1,1 @@
+\copy Personne(num_enregistrement,nom,prenom,email,signe_astro) FROM 'fill_personne.csv' WITH DELIMITER AS ','
