@@ -45,7 +45,7 @@ SQL;
 
 /* mettre du javascript ici */
 
-<body onLoad="javascript:alert('Coucou');">
+<body onLoad="javascript:alert('Félicitations, vous êtes le $number ème :sign');">
 </body>
 
 	// Visualise la personne créée
