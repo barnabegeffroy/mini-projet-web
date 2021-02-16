@@ -1,4 +1,4 @@
-<h1>Découvrez votre horoscope !</h1>
+<h1>Découvrez votre signe astrologique !</h1>
 
 <?php
 $erreur = !empty($_GET['erreur']) ? $_GET['erreur'] : null;
