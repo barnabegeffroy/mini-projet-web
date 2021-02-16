@@ -20,22 +20,29 @@ if (null == $sex) {
 	// on renvoie vers l'index /!\ message d'erreur à ajouter
 	afficherErreur("Choix incorrect");
 	return;
-} else if (null == $idClient && $choixMenu != 'c') {
-	// on renvoie vers l'index /!\ message d'erreur à ajouter
-	afficherErreur("Numéro de client requis pour ce choix");
-	return;
 } else if (!checkdate($mois, $jour, $annee)) {
 	// on renvoie vers l'index /!\ message d'erreur à ajouter
 	afficherErreur("Date saisie non valide");
 	return;
 } else {
 	$person = new \Rediite\Model\Entity\Person($sex, $prenom, $nom, $email, $date);
-	$personRepository = new \Rediite\Model\Repository\PersonRepository();
+	$personRepository = new \Rediite\Model\Repository\PersonRepository($dbAdapter);
 	$success = $personRepository->createPerson($person);
 	if (!$success) {
 		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?)");
 		return;
 	}
+
+	// Récupérer le nombre de personnes du même signe
+	$number =
+<<<SQL
+  	SELECT count(signe_astro) FROM Signe  WHERE signe_astro=:sign;
+SQL;
+	$stmt = $dbAdapter->prepare($number);
+	$stmt->bindValue(':sign', $person->getZodiacSign(), \PDO::PARAM_STR);
+	$stmt->execute();
+	$number = $stmt->fetch();
+
 	// Visualise la personne créée
 	$data = $person;
 	include_once '../src/View/template.php';

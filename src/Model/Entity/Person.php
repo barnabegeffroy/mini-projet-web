@@ -33,7 +33,7 @@ class Person
     /**
      * @var string
      */
-    private $astroSignPerson;
+    private $zodiacSignPerson;
 
 
     public function __construct(
@@ -41,13 +41,13 @@ class Person
         string $nom,
         string $prenom,
         string $email,
-        string $astroSign
+        string $date
     ) {
         $this->idPerson = $this->count;
         $this->lastNamePerson = $nom;
         $this->firstNamePerson = $prenom;
         $this->emailPerson = $email;
-        $this->astroSignPerson = $astroSign;
+        $this->setZodiacSign($date, $date, $date);
         $this->count++;
     }
     /**
@@ -67,8 +67,8 @@ class Person
     }
 
     /**
-     * @param mixed $login
-     * @return User
+     * @param mixed $lastName
+     * @return Person
      */
     public function setLastName($lastName)
     {
@@ -85,8 +85,8 @@ class Person
     }
 
     /**
-     * @param mixed $login
-     * @return User
+     * @param mixed $firstName
+     * @return Person
      */
     public function setFirstName($firstName)
     {
@@ -103,8 +103,8 @@ class Person
     }
 
     /**
-     * @param mixed $login
-     * @return User
+     * @param mixed $email
+     * @return Person
      */
     public function setEMail($email)
     {
@@ -115,24 +115,29 @@ class Person
     /**
      * @return mixed
      */
-    public function getAstroSign()
+    public function getZodiacSign()
     {
-        return $this->astroSignPerson;
+        return $this->zodiacSignPerson;
     }
 
-    /* ------------------------------------------
-    à revoir
-    ---------------------------------------------
-    *
-     * @param mixed $login
-     * @return User
-    
-    public function setAstroSign($email)
+    /**
+     * @param mixed $jour, $mois, $annee
+     * @return Person
+     */
+    public function setZodiacSign($jour, $mois, $annee)
     {
-        $this->emailPerson = $email;
+
+        $birthDay = date_parse_from_format('d/m', "$jour/$mois");
+        $day = $birthDay['day'];
+        $mounth = $birthDay['mounth'];
+        $data['taureau'] = "08/02";
+        $request = $this->dbAdapter->prepare(
+            'SELECT signe_zodiac FROM Signe WHERE date_debut <= :date AND date_fin >= :date'
+        );
+        $request->bindValue(':date', $birthDay, \PDO::PARAM_STR);
+        $request->execute();
+
+        $this->zodiacSignPerson = $request->fetch();
         return $this;
-    } 
-    ----------------------------------------------
-    ----------------------------------------------
-    */
+    }
 }
