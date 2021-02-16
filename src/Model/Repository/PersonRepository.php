@@ -17,8 +17,7 @@ class PersonRepository
 
   
   public function __construct(
-    \PDO $dbAdapter,
-
+    \PDO $dbAdapter
   ) {
     $this->dbAdapter = $dbAdapter;
   }
