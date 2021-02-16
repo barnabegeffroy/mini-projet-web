@@ -43,6 +43,9 @@ SQL;
 	$stmt->execute();
 	$number = $stmt->fetch();
 
+/* mettre du javascript ici */
+
+
 	// Visualise la personne créée
 	$data = $person;
 	include_once '../src/View/template.php';
