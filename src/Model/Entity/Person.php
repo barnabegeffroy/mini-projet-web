@@ -36,11 +36,7 @@ class Person
     private $zodiacSignPerson;
 
 
-    public function __construct(
-        string $prenom,
-        string $nom,
-        string $email
-    ) {
+    public function __construct(string $prenom, string $nom, string $email){
         $this->idPerson = $this->count;
         $this->lastNamePerson = $nom;
         $this->firstNamePerson = $prenom;
@@ -124,6 +120,6 @@ class Person
     public function setZodiacSign($sign)
     {
         $this->zodiacSignPerson=$sign;
-        return $this
+        return $this;
     }
 }
