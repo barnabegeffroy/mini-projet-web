@@ -1,4 +1,8 @@
-Je suis la page about
+<p> Ce site a été créé par : </p>
+<p> Barnabé Geffroy </p>
+<p> Constant Gayet </p>
+<p> Alexia Harivel </p>
+<p> Clémence Clavel </p>
 <p>
-    Ce site vous est fourni par <?php echo $data['founder'] ?>
+    Ce site vous est fourni par l'<?php echo $data['founder'] ?>
 </p>
