@@ -4,5 +4,5 @@
 <p> Alexia Harivel </p>
 <p> Clémence Clavel </p>
 <p>
-    Ce site vous est fourni par l'<?php echo $data['founder'] ?>
+    Ce site vous est fourni par l'<?php echo $data['founder']. ?>
 </p>
