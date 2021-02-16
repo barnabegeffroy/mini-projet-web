@@ -15,12 +15,12 @@ $email =  !empty($_POST['email']) ? $_POST['email'] : null;
 $date =  !empty($_POST['date']) ? $_POST['date'] : null;
 list($jour, $mois, $annee) = explode('/', $date);
 
-// problème en choisissant le sexe
+/* // problème en choisissant le sexe
 if (null == $sex) {
 	// on renvoie vers l'index /!\ message d'erreur à ajouter
 	afficherErreur("Choix incorrect");
 	return;
-} else if (!checkdate($mois, $jour, $annee)) {
+} else */ if (!checkdate($mois, $jour, $annee)) {
 	// on renvoie vers l'index /!\ message d'erreur à ajouter
 	afficherErreur("Date saisie non valide");
 	return;
