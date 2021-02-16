@@ -44,40 +44,8 @@ SQL;
 	$number = $stmt->fetch();
 
 /* mettre du javascript ici */
-//...where instance variables are declared:
-JPopupMenu popup;
 
-    //...where the GUI is constructed:
-    //Create the popup menu.
-    popup = new JPopupMenu();
-    menuItem = new JMenuItem("A popup menu item");
-    menuItem.addActionListener(this);
-    popup.add(menuItem);
-    menuItem = new JMenuItem("Another popup menu item");
-    menuItem.addActionListener(this);
-    popup.add(menuItem);
-
-    //Add listener to components that can bring up popup menus.
-    MouseListener popupListener = new PopupListener();
-    output.addMouseListener(popupListener);
-    menuBar.addMouseListener(popupListener);
-...
-class PopupListener extends MouseAdapter {
-    public void mousePressed(MouseEvent e) {
-        maybeShowPopup(e);
-    }
-
-    public void mouseReleased(MouseEvent e) {
-        maybeShowPopup(e);
-    }
-
-    private void maybeShowPopup(MouseEvent e) {
-        if (e.isPopupTrigger()) {
-            popup.show(e.getComponent(),
-                       e.getX(), e.getY());
-        }
-    }
-}
+<script>alert("<?php echo htmlspecialchars('Voici un message en JS écrit par PHP', ENT_QUOTES); ?>")</script>
 
 	// Visualise la personne créée
 	$data = $person;
