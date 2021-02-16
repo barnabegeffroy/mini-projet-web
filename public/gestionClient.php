@@ -37,7 +37,7 @@ if (null == $sex) {
 		return;
 	}
 	// Visualise la personne créée
-	$data = [$person];
+	$data = $person;
 	include_once '../src/View/template.php';
 	loadView('person', $data);
 }
