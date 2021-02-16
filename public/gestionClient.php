@@ -33,6 +33,17 @@ if (null == $sex) {
 		return;
 	}
 
+	//Récupérer la date en signe astro ------> à reprendre
+	$signe =
+<<<SQL
+  	SELECT signe_astro FROM Signe  WHERE $date ?????;
+SQL;
+	$stmt = $dbAdapter->prepare($signe);
+	// à modifier : $stmt->bindValue(':sign', $person->getZodiacSign(), \PDO::PARAM_STR);
+	$stmt->execute();
+	$signe = $stmt->fetch();
+
+
 	// Récupérer le nombre de personnes du même signe
 	$number =
 <<<SQL
@@ -45,7 +56,7 @@ SQL;
 
 /* mettre du javascript ici */
 
-<body onLoad="javascript:alert('Félicitations, vous êtes le $number ème :sign');">
+<body onLoad="javascript:alert('Félicitations! Tu êtes le $number ème $signe à t'être inscrit !');">
 </body>
 
 	// Visualise la personne créée
