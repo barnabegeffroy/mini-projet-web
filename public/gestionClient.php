@@ -25,7 +25,7 @@ if (null == $sex) {
 	afficherErreur("Date saisie non valide");
 	return;
 } else {
-	$person = new \Rediite\Model\Entity\Person($sex, $prenom, $nom, $email, $jour, $mois);
+	$person = new \Rediite\Model\Entity\Person($prenom, $nom, $email, $jour, $mois);
 	$personRepository = new \Rediite\Model\Repository\PersonRepository($dbAdapter);
 	$success = $personRepository->createPerson($person);
 	if (!$success) {
@@ -45,7 +45,7 @@ SQL;
 
 /* mettre du javascript ici */
 ?>
-<body onLoad="javascript:alert('Félicitations! Tu êtes le $number ème $signe à t'être inscrit !');">
+<body onLoad="javascript:alert('Félicitations! Tu êtes le $number ème $signe à t'être inscrit !');"\>
 </body>
 <?php
 	// Visualise la personne créée

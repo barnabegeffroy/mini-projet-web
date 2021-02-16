@@ -37,9 +37,8 @@ class Person
 
 
     public function __construct(
-        int $id,
-        string $nom,
         string $prenom,
+        string $nom,
         string $email,
         string $jour,
         string $mois
