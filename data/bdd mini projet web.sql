@@ -38,6 +38,26 @@ CREATE TABLE Personne (
     signe_astro VARCHAR(10) CONSTRAINT cle_etr_Personne FOREIGN KEY Signe(signe_astro)
 );
 
+
+INSERT INTO Signe VALUES('Bélier',21/03, 20/03,'Feu')
+INSERT INTO Signe VALUES('Taureau', 21/04,'Terre')
+INSERT INTO Signe VALUES('Gémeaux', 22/05, 21/06,'Air')
+INSERT INTO Signe VALUES('Cancer', 22/06, 22/07,'Eau')
+INSERT INTO Signe VALUES('Lion', 23/07, 22/08,'Feu')
+INSERT INTO Signe VALUES('Vierge', 23/08, 22/09,'Terre')
+INSERT INTO Signe VALUES('Balance', 23/09, 22/10,'Air')
+INSERT INTO Signe VALUES('Scorpion', 23/10, 22/11,'Eau')
+INSERT INTO Signe VALUES('Sagittaire', 23/11, 21/12,'Feu')
+INSERT INTO Signe VALUES('Capricorne', 22/12, 20/01,'Terre')
+INSERT INTO Signe VALUES('Verseau', 21/01, 18/02,'Air')
+INSERT INTO Signe VALUES('Poisson', 19/02, 20/03,'Eau')
+
+INSERT INTO Personne VALUES(001, 'Harivel', 'Alexia', 'alexia.harivel@ensiie.fr', 'Poisson')
+INSERT INTO Personne VALUES(002, 'Clavel', 'Clemence', 'clemence.clavel@ensiie.fr', 'Taureau')
+INSERT INTO Personne VALUES(003, 'Gayet', 'Constant', 'constant.gayet@ensiie.fr', 'Taureau')
+INSERT INTO Personne VALUES(004, 'Barnabe', 'Geffroy', 'barnabe.geffroy@ensiie.fr', 'Verseau')
+
+
 ----------- mettre le nom de la base de données ------------------
 GRANT all privileges ON Personne TO -----* * * * *-------;
 
