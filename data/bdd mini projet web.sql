@@ -59,6 +59,6 @@ INSERT INTO Personne VALUES(004, 'Barnabe', 'Geffroy', 'barnabe.geffroy@ensiie.f
 
 
 ----------- mettre le nom de la base de données ------------------
-GRANT all privileges ON Personne TO -----* * * * *-------;
+GRANT all privileges ON Personne TO PUBLIC
 
-GRANT all privileges ON Signe TO -----* * * * *-------;
+GRANT all privileges ON Signe TO PUBLIC
