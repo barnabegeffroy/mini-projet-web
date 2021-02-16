@@ -59,3 +59,5 @@ function afficherErreur(string $error)
 {
 	header('Location: index.php?erreur=' . $error);
 }
+
+?>
