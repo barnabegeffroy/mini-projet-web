@@ -25,24 +25,13 @@ if (null == $sex) {
 	afficherErreur("Date saisie non valide");
 	return;
 } else {
-	$person = new \Rediite\Model\Entity\Person($sex, $prenom, $nom, $email, $date);
+	$person = new \Rediite\Model\Entity\Person($sex, $prenom, $nom, $email, $jour, $mois);
 	$personRepository = new \Rediite\Model\Repository\PersonRepository($dbAdapter);
 	$success = $personRepository->createPerson($person);
 	if (!$success) {
 		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?)");
 		return;
 	}
-
-	//Récupérer la date en signe astro ------> à reprendre
-	$signe =
-<<<SQL
-  	SELECT signe_astro FROM Signe  WHERE $date ?????;
-SQL;
-	$stmt = $dbAdapter->prepare($signe);
-	// à modifier : $stmt->bindValue(':sign', $person->getZodiacSign(), \PDO::PARAM_STR);
-	$stmt->execute();
-	$signe = $stmt->fetch();
-
 
 	// Récupérer le nombre de personnes du même signe
 	$number =
@@ -55,10 +44,10 @@ SQL;
 	$number = $stmt->fetch();
 
 /* mettre du javascript ici */
-
+?>
 <body onLoad="javascript:alert('Félicitations! Tu êtes le $number ème $signe à t'être inscrit !');">
 </body>
-
+<?php
 	// Visualise la personne créée
 	$data = $person;
 	include_once '../src/View/template.php';
