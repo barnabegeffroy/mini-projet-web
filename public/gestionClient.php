@@ -46,7 +46,7 @@ SQL;
 /* mettre du javascript ici */
 
 <body onLoad="javascript:alert('Coucou');">
-
+</body>
 
 	// Visualise la personne créée
 	$data = $person;
