@@ -8,6 +8,11 @@ class Person
     /**
      * @var int
      */
+    private static $count = 0;
+
+    /**
+     * @var int
+     */
     private $idPerson;
 
     /**
@@ -30,22 +35,27 @@ class Person
      */
     private $astroSignPerson;
 
+
+    public function __construct(
+        int $id,
+        string $nom,
+        string $prenom,
+        string $email,
+        string $astroSign
+    ) {
+        $this->idPerson = $this->count;
+        $this->lastNamePerson = $nom;
+        $this->firstNamePerson = $prenom;
+        $this->emailPerson = $email;
+        $this->astroSignPerson = $astroSign;
+        $this->count++;
+    }
     /**
      * @return mixed
      */
     public function getId()
     {
         return $this->idPerson;
-    }
-
-    /**
-     * @param mixed $id
-     * @return User
-     */
-    public function setId($id)
-    {
-        $this->idPerson = $id;
-        return $this;
     }
 
     /**
@@ -125,5 +135,4 @@ class Person
     ----------------------------------------------
     ----------------------------------------------
     */
-  
 }
