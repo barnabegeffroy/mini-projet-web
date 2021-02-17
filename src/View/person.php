@@ -1,7 +1,7 @@
 <h1>Visualisation </h1>
 
-<div class="client-container">
-  <div class="client-item">
+<div class="person-container">
+  <div class="person-item">
     <p>
       Bonjour <?php echo $data->getFirstName(); ?> (<?php echo $data->getLastName(); ?>)
     </p>

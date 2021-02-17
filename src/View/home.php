@@ -8,7 +8,7 @@ if (null != $erreur) : ?>
 <?php
 endif; ?>
 
-<form action="gestionClient.php" method="post">
+<form action="gestionSigne.php" method="post">
   <label for="prenom">Prénom :</label>
   <input type="text" id="prenom" name="prenom" required="required"/><br>
   <label for="nom">Nom :</label>

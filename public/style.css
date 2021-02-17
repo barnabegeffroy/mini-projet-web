@@ -55,7 +55,7 @@ body {
   background-color: #ddd;
 }
 
-.client-item {
+.person-item {
   order: 2;
   margin-left: 20px;
 }
@@ -73,7 +73,7 @@ body {
   margin-left: 20px;
 }
 
-.client-container {
+.person-container {
   display: flex;
   order: 1;
 }
