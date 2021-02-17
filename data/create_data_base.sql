@@ -1,16 +1,16 @@
 --##############################################################
 --# Script SQL
---# Author: 
---# Function: Création schéma BD
+--# Author: Groupe 29
+--# Function: Création des relations astro_personne et astro_signe
 --###############################################################
 -- If tables already exist
-DROP TABLE IF EXISTS Personne;
+DROP TABLE IF EXISTS astro_personne;
 
-DROP TABLE IF EXISTS Signe;
+DROP TABLE IF EXISTS astro_signe;
 
-CREATE TABLE Signe (
-    signe_astro VARCHAR(10) CONSTRAINT dom_signe_astro CHECK(
-        signe_astro IN (
+CREATE TABLE astro_signe (
+    nom_signe_astro VARCHAR(10) CONSTRAINT dom_nom_signe_astro CHECK(
+        nom_signe_astro IN (
             'Bélier',
             'Taureau',
             'Gémeaux',
@@ -32,14 +32,14 @@ CREATE TABLE Signe (
     element VARCHAR(10) CONSTRAINT dom_element CHECK(element IN ('Air', 'Terre', 'Eau', 'Feu'))
 );
 
-CREATE TABLE Personne (
+CREATE TABLE astro_personne (
     num_enregistrement INTEGER CONSTRAINT cleprim_personne PRIMARY KEY,
     nom VARCHAR(20) NOT NULL,
     prenom VARCHAR(20) NOT NULL,
     email VARCHAR(40),
-    signe_astro VARCHAR(10),
-    CONSTRAINT cle_etr_Personne FOREIGN KEY (signe_astro) REFERENCES Signe(signe_astro)
+    nom_signe_astro VARCHAR(10),
+    CONSTRAINT cle_etr_Personne FOREIGN KEY (nom_signe_astro) REFERENCES astro_signe(nom_signe_astro)
 );
 
-GRANT all privileges ON Personne TO tpphp;
-GRANT all privileges ON Signe TO tpphp;
+GRANT all privileges ON astro_personne TO tpcurseurs;
+GRANT all privileges ON astro_signe TO tpcurseurs;

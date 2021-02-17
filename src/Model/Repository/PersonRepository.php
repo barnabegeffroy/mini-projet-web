@@ -29,9 +29,9 @@ class PersonRepository
     $mounth = $birthDay['mounth'];
     $request = $this->dbAdapter->prepare(
       'SELECT
-              signe_zodiac
+          nom_signe_astro
           FROM
-          Signe
+          astro_signe
           WHERE
               mois_debut <= :mounth
               AND mois_fin >= :mounth
@@ -50,7 +50,7 @@ class PersonRepository
   {
     $sql =
       <<<SQL
-  INSERT INTO Personne (num_enregistrement, nom, prenom, email, signe_astro)
+  INSERT INTO astro_personne (num_enregistrement, nom, prenom, email, nom_signe_astro)
     VALUES (:id, :nom, :prenom, :email, :signe_astro);
 SQL;
 
