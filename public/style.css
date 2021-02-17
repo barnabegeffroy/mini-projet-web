@@ -90,3 +90,30 @@ body {
   color: red;
   font-weight: bold;
 }
+
+
+a {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 0.625%;
+  text-align: center;
+  color: black;
+}
+
+li:last-child a {
+  margin-right: 0;
+}
+
+a:link, a:visited, a:focus {
+  background: yellow;
+}
+
+a:hover {
+  background: orange;
+}
+
+a:active {
+  background: red;
+  color: white;
+}
