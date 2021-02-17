@@ -106,11 +106,11 @@ li:last-child a {
 }
 
 a:link, a:visited, a:focus {
-  background: yellow;
+  background: rgb(255, 21, 255);
 }
 
 a:hover {
-  background: orange;
+  background: rgb(113, 2, 141);
 }
 
 a:active {

@@ -38,7 +38,7 @@ class PersonRepository
               AND jour_debut <= :jour
               AND jour_fin >= :jour'
     );
-    $request->bindValue(':day', $day, \PDO::PARAM_STR);
+    $request->bindValue(':jour', $day, \PDO::PARAM_STR);
     $request->bindValue(':mounth', $mounth, \PDO::PARAM_STR);
     $request->execute();
 

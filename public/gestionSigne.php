@@ -41,7 +41,7 @@ if (null == $sex) {
 	// Récupérer le nombre de personnes du même signe
 	$number =
 <<<SQL
-  	SELECT count(signe_astro) FROM Signe  WHERE signe_astro=:sign;
+  	SELECT count(signe_astro) FROM Personne WHERE signe_astro=:sign;
 SQL;
 	$stmt = $dbAdapter->prepare($number);
 	$stmt->bindValue(':sign', $person->getZodiacSign(), \PDO::PARAM_STR);
