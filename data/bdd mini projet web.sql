@@ -42,7 +42,7 @@ CREATE TABLE Personne (
 );
 
 
-INSERT INTO Signe VALUES('Bélier','21','03', '20','03','Feu');
+INSERT INTO Signe VALUES('Bélier','21','03', '20','04','Feu');
 INSERT INTO Signe VALUES('Taureau', '21','04', '20','05','Terre');
 INSERT INTO Signe VALUES('Gémeaux', '22','05', '21','06','Air');
 INSERT INTO Signe VALUES('Cancer', '22','06', '22','07','Eau');
