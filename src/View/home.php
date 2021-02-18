@@ -16,7 +16,7 @@ endif; ?>
   <label for="email">Email :</label>
   <input type="email" id="email" name="email" required="required"/><br>
   <label for="date">Date de naissance :</label>
-  <input type="date" id="date" name="date" required="required" value="21/02/2021"/><br>
+  <input type="date" id="datefield" name="date" required="required" value="21602-2021" max="01-01-1999"/><br>
   <fieldset>
     <legend>Etes-vous un homme ou une femme?</legend>
     <label for="h">Homme</label>
