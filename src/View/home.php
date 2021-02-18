@@ -14,7 +14,7 @@ endif; ?>
   <label for="nom">Nom :</label>
   <input type="text" id="nom" name="nom" required="required"/><br>
   <label for="email">Email :</label>
-  <input type="text" id="email" name="email" required="required"/><br>
+  <input type="email" id="email" name="email" required="required"/><br>
   <label for="date">Date de naissance :</label>
   <input type="date" id="date" name="date" required="required" value="21/02/2021"/><br>
   <fieldset>
@@ -27,4 +27,5 @@ endif; ?>
     <input type="radio" id="a" value="a" name="sex" required="required"><br>
   </fieldset>
   <button type="submit">Envoyer</button>
+  <script src="../Assets/Script/script.js"></script>
 </form>

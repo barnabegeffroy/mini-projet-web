@@ -21,12 +21,6 @@ if (!checkdate($mois, $jour, $annee)) {
 	// on renvoie vers l'index /!\ message d'erreur à ajouter
 	afficherErreur("Date saisie non valide");
 	return;
-}
-//problème lors de la saisie de l'adresse mail
-else if (!preg_match('/^[a-z0-9]+([._-]?[a-z0-9]+)*' . '@' . '[a-z0-9]+(.-]?[a-z0-9]+)*\.[a-z]{2,4}$/i', $email)) {
-	// on renvoie vers l'index /!\ message d'erreur à ajouter
-	afficherErreur("Adresse e-mail non valide");
-	return;
 } else {
 	// création/initialisation des objets pour manipuler les données
 	$person = new \Rediite\Model\Entity\Person($prenom, $nom, $email);
