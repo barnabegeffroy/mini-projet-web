@@ -15,13 +15,25 @@ class PersonRepository
    */
   private $dbAdapter;
 
-
+  /**
+   * constructor
+   * @param \PDO $dbAdapter
+   * @return void
+   */
   public function __construct(
     \PDO $dbAdapter
   ) {
     $this->dbAdapter = $dbAdapter;
   }
 
+  /**
+   * Set person's zodiac sign
+   * @param PersonEntity $person
+   * @param mixed $jour
+   * @param mixed $mois
+   * 
+   * @return mixed
+   */
   function changeDateToSign(PersonEntity $person, $jour, $mois)
   {
     $birthDay = date_parse_from_format('d-m', "$jour-$mois");
@@ -45,7 +57,11 @@ class PersonRepository
     $person->setZodiacSign($request->fetch());
     return $this;
   }
-
+  /**
+   * add person's datas in our data base
+   * @param PersonEntity $person
+   * @return bool
+   */
   function createPerson(PersonEntity $person)
   {
     $sql =
