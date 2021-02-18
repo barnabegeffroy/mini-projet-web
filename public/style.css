@@ -91,7 +91,6 @@ body {
   font-weight: bold;
 }
 
-
 a {
   outline: none;
   text-decoration: none;
@@ -116,4 +115,16 @@ a:hover {
 a:active {
   background: red;
   color: white;
+}
+
+label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 250px;
+  text-align: right;
+}
+input {
+display: inline-block;
+float: left;
 }
