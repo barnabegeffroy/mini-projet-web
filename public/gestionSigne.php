@@ -53,7 +53,7 @@ SQL;
 
 /* mettre du javascript ici */
 ?>
-<body onLoad="javascript:alert('Félicitations! Tu êtes le $number ème $signe à t'être inscrit !');"\>
+<body onLoad="javascript:alert('Félicitations! Tu êtes le <?php echo $number ?> ème <?php echo $signe ?> à t'être inscrit !');"\>
 </body>
 <?php
 	// Visualise la personne créée
