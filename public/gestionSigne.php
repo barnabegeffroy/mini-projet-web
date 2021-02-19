@@ -51,7 +51,7 @@ SQL;
 	/* Pop up JS pour annoncer le combien ont le même signe que l'utilisateur */
 ?>
 
-	<body onLoad="javascript:alert('Félicitations! Tu es le <?php echo $number ?> ème <?php echo $signe ?> à t'être inscrit !');" \>
+	<body onLoad="javascript:alert('Félicitations! Tu es le <?php echo $number ?> ème <?php echo changeDateToSign(PersonEntity $person, $jour, $mois) ?> à t'être inscrit !');" \>
 	</body>
 <?php
 	// Visualise la personne créée
