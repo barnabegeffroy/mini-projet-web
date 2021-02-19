@@ -14,7 +14,7 @@ $prenom = !empty($_POST['prenom']) ? $_POST['prenom'] : null;
 $nom = !empty($_POST['nom']) ? $_POST['nom'] : null;
 $email = !empty($_POST['email']) ? $_POST['email'] : null;
 $date = !empty($_POST['date']) ? $_POST['date'] : null;
-list($annee, $mois, $jour) = explode('/', $date);
+list($annee, $mois, $jour) = explode('-', $date);
 
 //problème lors de la saisie de la date
 if (!checkdate($mois, $jour, $annee)) {
