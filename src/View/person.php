@@ -1,4 +1,4 @@
-<h1>Visualisation </h1>
+<h1>Résultat </h1>
 
 <div class="person-container">
   <div class="person-item">
