@@ -9,10 +9,10 @@
       Voici votre signe astrologique : <?php echo $data->getZodiacSign(); ?>
     </p>
   </div>
-  <?php
-  include_once './horoscope.php';
-  loadHoroscope($data->getZodiacSign());
-  ?>
+  <!-- <?php
+  // include_once './horoscope.php';
+  // loadHoroscope($data->getZodiacSign());
+  ?> -->
 </div>
 
 
