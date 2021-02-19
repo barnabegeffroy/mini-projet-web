@@ -1,8 +1,9 @@
 <?php
-function loadHoroscope($sign) {
+function loadHoroscope($sign)
+{
 ?>
     <div class="horoscope">
-        <?php include_once '../View/horoscope/'.$sign.'.html' ?>
+        <?php include_once '../View/horoscope/' . $sign . '.html' ?>
     </div>
 <?php
 }
