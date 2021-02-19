@@ -25,7 +25,7 @@ if (!checkdate($mois, $jour, $annee)) {
 	// création/initialisation des objets pour manipuler les données
 	$person = new \Rediite\Model\Entity\Person($prenom, $nom, $email);
 	$personRepository = new \Rediite\Model\Repository\PersonRepository($dbAdapter);
-	$addSign = $personRepository->changeDateToSign($person, $date);
+	$addSign = $personRepository->changeDateToSign($person, intval($jour), intval($mois));
 	if (!$addSign) {
 		// on renvoie vers l'index /!\ message d'erreur à ajouter
 		afficherErreur("Erreur lors de la conversion date en signe astrologique avec ces valeurs :".$jour." ".$mois);
