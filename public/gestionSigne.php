@@ -28,7 +28,7 @@ if (!checkdate($mois, $jour, $annee)) {
 	$addSign = $personRepository->changeDateToSign($person, $jour, $mois);
 	if (!$addSign) {
 		// on renvoie vers l'index /!\ message d'erreur à ajouter
-		afficherErreur("Erreur lors de la conversion date en signe astrologique");
+		afficherErreur("Erreur lors de la conversion date en signe astrologique avec ces valeurs :".$jour." ".$mois);
 		return;
 	}
 	$success = $personRepository->createPerson($person);
