@@ -3,9 +3,8 @@ body {
   font-family: 'Arvo', serif;
 }
 
-.h1 {
+.h1 {}
 
-}
 .logo-container {
   font-size: 28px;
 }
@@ -13,7 +12,7 @@ body {
 .header {
   color: white;
   background-color: rgb(0, 0, 0);
-  background-image: url(src/Pictures/signes_header.png); 
+  background-image: url(src/Pictures/signes_header.png);
   padding: 23px;
   display: flex;
   justify-content: space-between;
@@ -55,7 +54,7 @@ body {
   background-color: #ddd;
 }
 
-.client-item {
+.person-item {
   order: 2;
   margin-left: 20px;
 }
@@ -73,7 +72,7 @@ body {
   margin-left: 20px;
 }
 
-.client-container {
+.person-container {
   display: flex;
   order: 1;
 }
@@ -91,7 +90,6 @@ body {
   font-weight: bold;
 }
 
-
 a {
   outline: none;
   text-decoration: none;
@@ -106,14 +104,20 @@ li:last-child a {
 }
 
 a:link, a:visited, a:focus {
-  background: yellow;
+  background: rgb(255, 21, 255);
 }
 
 a:hover {
-  background: orange;
+  background: rgb(113, 2, 141);
 }
 
 a:active {
   background: red;
   color: white;
+}
+
+label {
+  display: inline-block;
+  width: 210px;
+  text-align: right;
 }

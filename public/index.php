@@ -9,4 +9,3 @@ $data = [];
 
 include_once '../src/View/template.php';
 loadView('home', $data);
-?>

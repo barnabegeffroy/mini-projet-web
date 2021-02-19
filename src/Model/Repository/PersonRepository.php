@@ -15,13 +15,25 @@ class PersonRepository
    */
   private $dbAdapter;
 
-
+  /**
+   * constructor
+   * @param \PDO $dbAdapter
+   * @return void
+   */
   public function __construct(
     \PDO $dbAdapter
   ) {
     $this->dbAdapter = $dbAdapter;
   }
 
+  /**
+   * Set person's zodiac sign
+   * @param PersonEntity $person
+   * @param mixed $jour
+   * @param mixed $mois
+   * 
+   * @return mixed
+   */
   function changeDateToSign(PersonEntity $person, $jour, $mois)
   {
     $birthDay = date_parse_from_format('d-m', "$jour-$mois");
@@ -29,28 +41,32 @@ class PersonRepository
     $mounth = $birthDay['mounth'];
     $request = $this->dbAdapter->prepare(
       'SELECT
-              signe_zodiac
+          nom_signe_astro
           FROM
-          Signe
+          astro_signe
           WHERE
               mois_debut <= :mounth
               AND mois_fin >= :mounth
               AND jour_debut <= :jour
               AND jour_fin >= :jour'
     );
-    $request->bindValue(':day', $day, \PDO::PARAM_STR);
+    $request->bindValue(':jour', $day, \PDO::PARAM_STR);
     $request->bindValue(':mounth', $mounth, \PDO::PARAM_STR);
     $request->execute();
 
     $person->setZodiacSign($request->fetch());
     return $this;
   }
-
+  /**
+   * add person's datas in our data base
+   * @param PersonEntity $person
+   * @return bool
+   */
   function createPerson(PersonEntity $person)
   {
     $sql =
       <<<SQL
-  INSERT INTO Personne (num_enregistrement, nom, prenom, email, signe_astro)
+  INSERT INTO astro_personne (num_enregistrement, nom, prenom, email, nom_signe_astro)
     VALUES (:id, :nom, :prenom, :email, :signe_astro);
 SQL;
 
