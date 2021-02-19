@@ -8,6 +8,21 @@
     <p>
       Voici votre signe astrologique : <?php echo $data->getZodiacSign(); ?>
     </p>
+    <p>
+      Voici votre identifiant : <?php echo $data->getId(); ?>
+    </p>
+    <p>
+      Voici votre date : <?php echo $date; ?>
+    </p>
+    <p>
+      Voici votre annee : <?php echo $annee; ?>
+    </p>
+    <p>
+      Voici votre jour : <?php echo $jour; ?>
+    </p>
+    <p>
+      Voici votre mois : <?php echo $mois; ?>
+    </p>
   </div>
   <!-- <?php
   // include_once './horoscope.php';
