@@ -45,7 +45,7 @@ class PersonRepository
               ELSE (mois_debut * 100 + jour_debut) <= (EXTRACT(MOUNTH FROM :date) * 100 + EXTRACT(DAY FROM :date)) OR (EXTRACT(MOUNTH FROM :date) * 100 + EXTRACT(DAY FROM :date)) <= (mois_fin * 100 + jour_fin) 
           END'
     );
-    $request->bindValue(':jour', $date, \PDO::PARAM_STR);
+    $request->bindValue(':date', $date, \PDO::PARAM_STR);
     $request->execute();
 
     $person->setZodiacSign($request->fetch());
