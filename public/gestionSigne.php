@@ -55,7 +55,7 @@ SQL;
 	</body>
 <?php
 	// Visualise la personne créée
-	$data = $person;
+	$data = [$person,$date,$annee,$mois,$jour];
 	include_once '../src/View/template.php';
 	loadView('person', $data);
 }
