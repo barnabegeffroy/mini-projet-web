@@ -48,8 +48,8 @@ class PersonRepository
               ELSE (mois_debut * 100 + jour_debut) <= (:mounth * 100 + :jour) OR (:mounth * 100 + :jour) <= (mois_fin * 100 + jour_fin) 
           END'
     );
-    $request->bindValue(':jour', $day, \PDO::PARAM_STR);
-    $request->bindValue(':mounth', $mounth, \PDO::PARAM_STR);
+    $request->bindValue(':jour', $day, \PDO::PARAM_INT);
+    $request->bindValue(':mounth', $mounth, \PDO::PARAM_INT);
     $request->execute();
 
     $person->setZodiacSign($request->fetch());
