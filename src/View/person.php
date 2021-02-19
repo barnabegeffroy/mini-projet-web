@@ -3,7 +3,7 @@
 <div class="person-container">
   <div class="person-item">
     <p>
-      Bonjour <?php echo $data[0]->getFirstName(); ?> (<?php echo $data[0]->getLastName(); ?>)
+      Bonjour <?php echo $data[0]->getFirstName(); ?> <?php echo $data[0]->getLastName(); ?>
     </p>
     <p>
       Voici votre signe astrologique : <?php echo $data[0]->getZodiacSign(); ?>
@@ -18,7 +18,7 @@
       Voici votre annee : <?php echo $data[2]; ?>
     </p>
     <p>
-      Voici votre jour : <?php echo $data[4]; ?>
+      Voici votre jour : <?php echo intval($data[4]); ?>
     </p>
     <p>
       Voici votre mois : <?php echo $data[3]; ?>
