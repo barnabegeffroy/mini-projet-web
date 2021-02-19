@@ -33,7 +33,7 @@ CREATE TABLE astro_signe (
 );
 
 CREATE TABLE astro_personne (
-    num_enregistrement INTEGER CONSTRAINT cleprim_personne PRIMARY KEY,
+    num_enregistrement VARCHAR CONSTRAINT cleprim_personne PRIMARY KEY,
     nom VARCHAR(20) NOT NULL,
     prenom VARCHAR(20) NOT NULL,
     email VARCHAR(40),

@@ -4,14 +4,8 @@ namespace Rediite\Model\Entity;
 
 class Person
 {
-
     /**
-     * @var int
-     */
-    private static $count = 0;
-
-    /**
-     * @var int
+     * @var string
      */
     private $idPerson;
 
@@ -44,11 +38,10 @@ class Person
      */
     public function __construct(string $prenom, string $nom, string $email)
     {
-        $this->idPerson = $this->count;
+        $this->idPerson = md5(uniqid($email, true));
         $this->lastNamePerson = $nom;
         $this->firstNamePerson = $prenom;
         $this->emailPerson = $email;
-        $this->count++;
     }
     /**
      * @return mixed
