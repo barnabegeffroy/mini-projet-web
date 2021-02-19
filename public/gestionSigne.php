@@ -34,7 +34,7 @@ if (!checkdate($mois, $jour, $annee)) {
 	$success = $personRepository->createPerson($person);
 	if (!$success) {
 		// on renvoie vers l'index /!\ message d'erreur à ajouter
-		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?)");
+		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?). Identifiant : ".$person->getId()." Signe : ".$person->getZodiacSign());
 		return;
 	}
 
