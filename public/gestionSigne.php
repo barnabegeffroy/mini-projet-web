@@ -28,15 +28,15 @@ if (!checkdate($mois, $jour, $annee)) {
 	$addSign = $personRepository->changeDateToSign($person, intval($jour), intval($mois));
 	if (!$addSign) {
 		// on renvoie vers l'index /!\ message d'erreur à ajouter
-		afficherErreur("Erreur lors de la conversion date en signe astrologique avec ces valeurs :".$jour." ".$mois);
+		afficherErreur("Erreur lors de la conversion date en signe astrologique avec ces valeurs :");
 		return;
 	}
 	$success = $personRepository->createPerson($person);
-/* 	if (!$success) {
+	if (!$success) {
 		// on renvoie vers l'index /!\ message d'erreur à ajouter
-		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?). Identifiant : ".$person->getId()." Signe : ".$person->getZodiacSign());
+		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?).");
 		return;
-	} */
+	}
 
 	// Récupérer le nombre de personnes du même signe
 	$number =
