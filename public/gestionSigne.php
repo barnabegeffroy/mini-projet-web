@@ -32,27 +32,13 @@ if (!checkdate($mois, $jour, $annee)) {
 		return;
 	}
 	$success = $personRepository->createPerson($person);
-	// if (!$success) {
-	// 	// on renvoie vers l'index /!\ message d'erreur à ajouter
-	// 	afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?).");
-	// 	return;
-	// }
-
-	// Récupérer le nombre de personnes du même signe
-	$number =
-		<<<SQL
- 	SELECT count(nom_signe_astro) FROM astro_personne WHERE nom_signe_astro=:sign;
-SQL;
-	$stmt = $dbAdapter->prepare($number);
-	$stmt->bindValue(':sign', $person->getZodiacSign(), \PDO::PARAM_STR);
-	$stmt->execute();
-	$number = $stmt->fetch();
-
-	/* Pop up JS pour annoncer le combien ont le même signe que l'utilisateur */
+	if (!$success) {
+		// on renvoie vers l'index /!\ message d'erreur à ajouter
+		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?).");
+		return;
+	}
 ?>
 
-	<body onLoad="javascript:alert('Félicitations! Tu es le <?php echo $number ?> ème <?php echo $person->getZodiacSign() ?> à t'être inscrit !');" \>
-	</body>
 <?php
 	// Visualise la personne créée
 	$data = $person;

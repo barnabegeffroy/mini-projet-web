@@ -10,11 +10,37 @@
     </p>
     <div class="horoscope">
       <p>Voici votre horoscope : </p>
-      <?php include 'horoscope/' . $data->getZodiacSign() . '.html' ?>
+      <strong><?php include 'horoscope/' . $data->getZodiacSign() . '.html' ?></strong>
     </div>
+
+    <?php
+    // Récupérer le nombre de personnes du même signe
+    $sql =
+      <<<SQL
+    SELECT COUNT(element)
+      FROM astro_signe A JOIN astro_personne B ON A.nom_signe_astro=B.nom_signe_astro
+      WHERE B.nom_signe_astro=:sign ;
+SQL;
+    $stmt = $dbAdapter->prepare($sql);
+    $stmt->bindValue(':sign', $data->getZodiacSign(), \PDO::PARAM_STR);
+    $stmt->execute();
+    $number = $stmt->fetch()['count'];
+
+    // Récupérer l'élément lié au signe de la personne
+    $sql =
+      <<<SQL
+    SELECT element FROM astro_signe WHERE nom_signe_astro =:sign ;
+SQL;
+    $stmt = $dbAdapter->prepare($sql);
+    $stmt->bindValue(':sign', $data->getZodiacSign(), \PDO::PARAM_STR);
+    $stmt->execute();
+    $element = $stmt->fetch()['element'];
+    ?>
+    <p>
+      Félicitations! Tu es la <?php echo $number ?>ème personne de type <strong><?php echo $element ?></strong> à vous être inscrit !
+    </p>
   </div>
 </div>
-
 
 <?php
 //envoie d'un mail à l'utilisateur pour le remercier
