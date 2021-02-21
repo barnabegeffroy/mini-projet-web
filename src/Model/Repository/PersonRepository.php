@@ -37,8 +37,8 @@ class PersonRepository
   function changeDateToSign(PersonEntity $person, $jour, $mois)
   {
     $request = $this->dbAdapter->prepare(
-      'SELECT signe_astro
-      FROM Signe
+      'SELECT nom_signe_astro
+      FROM astro_signe
       WHERE 
           CASE WHEN mois_debut <= mois_fin 
               THEN (mois_debut * 100 + jour_debut) <= (:mounth * 100 + :jour) AND  (:mounth * 100 + :jour) <= (mois_fin * 100 + jour_fin)
@@ -49,7 +49,7 @@ class PersonRepository
     $request->bindValue(':mounth', $mois, \PDO::PARAM_INT);
     $request->execute();
 
-    $person->setZodiacSign($request->fetch());
+    $person->setZodiacSign($request->fetch()['nom_signe_astro']);
     return $this;
   }
   /**

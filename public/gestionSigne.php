@@ -32,11 +32,11 @@ if (!checkdate($mois, $jour, $annee)) {
 		return;
 	}
 	$success = $personRepository->createPerson($person);
-	if (!$success) {
-		// on renvoie vers l'index /!\ message d'erreur à ajouter
-		afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?).");
-		return;
-	}
+	// if (!$success) {
+	// 	// on renvoie vers l'index /!\ message d'erreur à ajouter
+	// 	afficherErreur("Erreur lors de la création de la personne (existe-t-il déjà ?).");
+	// 	return;
+	// }
 
 	// Récupérer le nombre de personnes du même signe
 	$number =
@@ -55,7 +55,7 @@ SQL;
 	</body>
 <?php
 	// Visualise la personne créée
-	$data = [$person,$date,$annee,$mois,$jour];
+	$data = $person;
 	include_once '../src/View/template.php';
 	loadView('person', $data);
 }

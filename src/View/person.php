@@ -6,13 +6,13 @@
       Bonjour <?php echo $data->getFirstName(); ?> <?php echo $data->getLastName(); ?>
     </p>
     <p>
-      Voici votre signe astrologique : <?php echo $data->getZodiacSign(); ?>
+      Voici votre signe astrologique : <strong><?php echo $data->getZodiacSign(); ?></strong>
     </p>
+    <div class="horoscope">
+      <p>Voici votre horoscope : </p>
+      <?php include 'horoscope/' . $data->getZodiacSign() . '.html' ?>
+    </div>
   </div>
-  <?php
-  include_once './horoscope.php';
-  loadHoroscope($data->getZodiacSign());
-  ?>
 </div>
 
 
