@@ -37,7 +37,7 @@ SQL;
     $element = $stmt->fetch()['element'];
     ?>
     <p>
-      Félicitations! Tu es la <?php echo $number ?>ème personne de type <strong><?php echo $element ?></strong> à vous être inscrit !
+      Félicitations! Vous êtes la <?php echo $number ?>ème personne de type <strong><?php echo $element ?></strong> à vous être inscrit !
     </p>
   </div>
 </div>
