@@ -1,10 +1,5 @@
----
-title: my title
-author: my name
-date: today
----
 # Mini-projet web
-
+http://pgsql.pedago.ensiie.fr/~barnabe.geffroy/mini-projet/public/
 ## Principe
 Le site est un formulaire donnant à la personne inscrite son signe astrologique ainsi que son élément en fonction de sa date de naissance. 
 Un système d'envoi de mail a également été intégré (pas compatible avec toutes les boites mail : fonctionne avec une adresse ensiie.fr mais pas avec une adresse gmail.com par exemple) pour remercier l'utilisateur d'être passé sur le site.
