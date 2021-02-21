@@ -29,7 +29,7 @@ CREATE TABLE astro_signe (
     mois_debut INTEGER,
     jour_fin INTEGER,
     mois_fin INTEGER,
-    element VARCHAR(10) CONSTRAINT dom_element CHECK(element IN ('Air', 'Terre', 'Eau', 'Feu'))
+    element VARCHAR(10) CONSTRAINT dom_element CHECK(element IN ('Air','Terre','Eau','Feu'))
 );
 
 CREATE TABLE astro_personne (
@@ -40,6 +40,19 @@ CREATE TABLE astro_personne (
     nom_signe_astro VARCHAR(10),
     CONSTRAINT cle_etr_Personne FOREIGN KEY (nom_signe_astro) REFERENCES astro_signe(nom_signe_astro)
 );
+
+INSERT INTO astro_signe VALUES('Bélier',21,3,20,4,'Feu');
+INSERT INTO astro_signe VALUES('Taureau',21,4,20,5,'Terre');
+INSERT INTO astro_signe VALUES('Gémeaux',22,5,21,6,'Air');
+INSERT INTO astro_signe VALUES('Cancer',22,6,22,7,'Eau');
+INSERT INTO astro_signe VALUES('Lion',23,7,22,8,'Feu');
+INSERT INTO astro_signe VALUES('Vierge',23,8,22,9,'Terre');
+INSERT INTO astro_signe VALUES('Balance',23,9,22,10,'Air');
+INSERT INTO astro_signe VALUES('Scorpion',23,10,22,11,'Eau');
+INSERT INTO astro_signe VALUES('Sagittaire',23,11,21,12,'Feu');
+INSERT INTO astro_signe VALUES('Capricorne',22,12,20,1,'Terre');
+INSERT INTO astro_signe VALUES('Verseau',21,1,18,2,'Air');
+INSERT INTO astro_signe VALUES('Poisson',19,2,20,3,'Eau');
 
 GRANT all privileges ON astro_personne TO tpcurseurs;
 GRANT all privileges ON astro_signe TO tpcurseurs;
