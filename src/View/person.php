@@ -8,9 +8,10 @@
     <p>
       Voici votre signe astrologique : <strong><?php echo $data->getZodiacSign(); ?></strong>
     </p>
+    <!-- Afficher l'horoscope -->
     <div class="horoscope">
       <p>Voici votre horoscope : </p>
-      <strong><?php include 'horoscope/' . $data->getZodiacSign() . '.html' ?></strong>
+      <strong><?php include 'horoscope/' . $data->getZodiacSign() . '.txt' ?></strong>
     </div>
 
     <?php
